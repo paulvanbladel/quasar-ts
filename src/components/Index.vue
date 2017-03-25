@@ -25,56 +25,58 @@
   </q-layout>
 </template>
 
-<script>
+<script lang='ts'>
 var moveForce = 30
 var rotateForce = 40
 
-import { Utils } from 'quasar'
+import  Quasar from 'quasar'
+import  Vue from 'vue'
+import  Component from 'vue-class-component'
 
-export default {
-  data () {
-    return {
-      moveX: 0,
-      moveY: 0,
-      rotateY: 0,
-      rotateX: 0
+@Component({
+    props: {
+        propMessage: String
     }
-  },
-  computed: {
-    position () {
-      let transform = `rotateX(${this.rotateX}deg) rotateY(${this.rotateY}deg)`
-      return {
-        top: this.moveY + 'px',
-        left: this.moveX + 'px',
-        '-webkit-transform': transform,
-        '-ms-transform': transform,
-        transform
-      }
-    }
-  },
-  methods: {
-    move (event) {
-      const {width, height} = Utils.dom.viewport()
-      const {top, left} = Utils.event.position(event)
-      const halfH = height / 2
-      const halfW = width / 2
+})
+export default class Index extends Vue {
+    quasarVersion = Quasar.version
+    moveX = 0
+    moveY = 0
+    rotateY = 0
+    rotateX = 0
+    get position() {
 
-      this.moveX = (left - halfW) / halfW * -moveForce
-      this.moveY = (top - halfH) / halfH * -moveForce
-      this.rotateY = (left / width * rotateForce * 2) - rotateForce
-      this.rotateX = -((top / height * rotateForce * 2) - rotateForce)
+        let transform = `rotateX(${this.rotateX}deg) rotateY(${this.rotateY}deg)`
+        return {
+            top: this.moveY + 'px',
+            left: this.moveX + 'px',
+            '-webkit-transform': transform,
+            '-ms-transform': transform,
+            transform
+        }
     }
-  },
-  mounted () {
-    this.$nextTick(() => {
-      document.addEventListener('mousemove', this.move)
-      document.addEventListener('touchmove', this.move)
-    })
-  },
-  beforeDestroy () {
-    document.removeEventListener('mousemove', this.move)
-    document.removeEventListener('touchmove', this.move)
-  }
+
+    move(event) {
+        const {width, height} = Quasar.Utils.dom.viewport()
+        const {top, left} = Quasar.Utils.event.position(event)
+        const halfH = height / 2
+        const halfW = width / 2
+
+        this.moveX = (left - halfW) / halfW * -moveForce
+        this.moveY = (top - halfH) / halfH * -moveForce
+        this.rotateY = (left / width * rotateForce * 2) - rotateForce
+        this.rotateX = -((top / height * rotateForce * 2) - rotateForce)
+    }
+    mounted() {
+        this.$nextTick(() => {
+            document.addEventListener('mousemove', this.move)
+            document.addEventListener('touchmove', this.move)
+        })
+    }
+    beforeDestroy() {
+        document.removeEventListener('mousemove', this.move)
+        document.removeEventListener('touchmove', this.move)
+    }
 }
 </script>
 

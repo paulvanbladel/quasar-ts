@@ -3,20 +3,20 @@
 // 1. use next line to activate CUSTOM STYLE (./src/themes)
 // require(`./themes/app.${__THEME}.styl`)
 // 2. or, use next line to activate DEFAULT QUASAR STYLE
-require(`quasar/dist/quasar.${__THEME}.css`)
+require(`quasar/dist/quasar.${__THEME}.css`);
 // ==============================
 
-import Vue from 'vue'
-import Quasar from 'quasar'
-import router from './router'
-
-Vue.use(Quasar) // Install Quasar Framework
+import Vue from "vue"
+import Quasar from "quasar"
+import router from "./router"
+import app from "./App.vue";
+Vue.use(Quasar) // install Quasar Framework
 
 Quasar.start(() => {
   /* eslint-disable no-new */
   new Vue({
     el: '#q-app',
     router,
-    render: h => h(require('./App'))
+    render: h => h(app)
   })
 })
