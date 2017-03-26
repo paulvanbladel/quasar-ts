@@ -31,6 +31,11 @@ module.exports = {
   },
   module: {
     rules: [
+       { 
+        test: /\.ts$/, 
+        exclude: /node_modules/, enforce: 'pre', 
+        loader: 'tslint-loader' 
+      },
       {
         test: /\.ts$/,
         exclude: /node_modules|vue\/src/,

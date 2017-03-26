@@ -1,19 +1,21 @@
 <template>
   <q-layout>
-    <div slot="header" class="toolbar">
+    <div slot="header"
+         class="toolbar">
       <q-toolbar-title :padding="0">
         Quasar Framework v{{$q.version}}
       </q-toolbar-title>
     </div>
-
+  
     <!--
-      Replace following "div" with
-      "<router-view class="layout-view">" component
-      if using subRoutes
-    -->
+        Replace following "div" with
+        "<router-view class="layout-view">" component
+        if using subRoutes
+      -->
     <div class="layout-view">
       <div class="logo-container non-selectable no-pointer-events">
-        <div class="logo" :style="position">
+        <div class="logo"
+             :style="position">
           <img src="~assets/quasar-logo.png">
           <p class="caption text-center">
             <span class="desktop-only">Move your mouse.</span>
@@ -81,15 +83,18 @@ export default class Index extends Vue {
 </script>
 
 <style lang="styl">
-.logo-container
-  width 192px
-  height 268px
-  perspective 800px
-  position absolute
-  top 50%
-  left 50%
-  transform translateX(-50%) translateY(-50%)
-.logo
-  position absolute
-  transform-style preserve-3d
+.logo-container {
+  width: 192px;
+  height: 268px;
+  perspective: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.logo {
+  position: absolute;
+  transform-style: preserve-3d;
+}
 </style>

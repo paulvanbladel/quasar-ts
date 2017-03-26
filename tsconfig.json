@@ -1,26 +1,45 @@
 {
-    "compilerOptions": {
-        "target": "es5",
-        "lib": [
-            "dom",
-            "es5",
-            "es2015"
-        ],
-        "types": [
-            "node"
-        ],
-        "module": "es2015",
-        "moduleResolution": "node",
-        "isolatedModules": false,
-        "allowSyntheticDefaultImports": true,
-        "experimentalDecorators": true,
-        "noImplicitThis": true,
-        "strictNullChecks": true,
-        "removeComments": true,
-        "suppressImplicitAnyIndexErrors": true
-    },
-    "include": [
-        "./src/**/*.ts"
+  "compilerOptions": {
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es5",
+    "lib": [
+      "dom",
+      "es5",
+      "es2015",
+      "es2015.promise"
     ],
-    "compileOnSave": false
+    "allowJs":true,
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true
+  },
+  "compileOnSave": false
 }
+// {
+//     "compilerOptions": {
+//         "target": "es5",
+//         "lib": [
+//             "dom",
+//             "es5",
+//             "es2015"
+//         ],
+//         "types": [
+//             "node"
+//         ],
+//         "module": "es2015",
+//         "moduleResolution": "node",
+//         "isolatedModules": false,
+//         "allowSyntheticDefaultImports": true,
+//         "experimentalDecorators": true,
+//         "noImplicitThis": true,
+//         "strictNullChecks": true,
+//         "removeComments": true,
+//         "suppressImplicitAnyIndexErrors": true
+//     },
+//     "include": [
+//         "./src/**/*.ts"
+//     ],
+//     "compileOnSave": false
+// }
