@@ -41,6 +41,7 @@ import  Component from 'vue-class-component'
     }
 })
 export default class Index extends Vue {
+    myVar = 'hi there';
     quasarVersion = Quasar.version
     moveX = 0
     moveY = 0
