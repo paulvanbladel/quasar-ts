@@ -13,7 +13,10 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true
   },
   "compileOnSave": false
 }
