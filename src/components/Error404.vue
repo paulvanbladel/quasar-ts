@@ -1,23 +1,30 @@
 <template>
-  <div class="error-page window-height window-width bg-light column items-center">
+  <div class="error-page window-height window-width bg-light column items-center no-wrap">
     <div class="error-code bg-primary flex items-center justify-center">
       404
     </div>
     <div>
-      <div class="error-card card bg-white column items-center justify-center">
-        <i class="text-grey-5">error_outline</i>
+      <div class="error-card shadow-4 bg-white column items-center justify-center no-wrap">
+        <q-icon name="error_outline" color="grey-5" ></q-icon>
         <p class="caption text-center">Oops. Nothing here...</p>
         <p class="text-center group">
-          <button v-if="canGoBack" class="grey push small" @click="goBack">
-            <i class="on-left">keyboard_arrow_left</i>
+          <q-btn
+            v-if="canGoBack"
+            color="primary"
+            push
+            @click="goBack"
+            icon="keyboard_arrow_left"
+          >
             Go back
-          </button>
-          <router-link to="/">
-            <button class="grey push small">
-              Go home
-              <i class="on-right">home</i>
-            </button>
-          </router-link>
+          </q-btn>
+          <q-btn
+            color="primary"
+            push
+            @click="$router.replace('/')"
+            icon-right="home"
+          >
+            Go home
+          </q-btn>
         </p>
       </div>
     </div>
@@ -25,22 +32,8 @@
 </template>
 
 <script lang='ts'>
-var Quasar = require('quasar')
-import  Vue from 'vue'
-import  Component from 'vue-class-component'
-
-@Component({})
-export default class ErrorComponent extends Vue {
-    canGoBack = window.history.length > 1
-    goBack() {
-        window.history.go(-1)
-    }
-    data() {
-        return {
-            canGoBack: window.history.length > 1
-        }
-    }
-}
+    import Error404 from './Error404'
+    export default Error404
 </script>
 
 <style lang="stylus">
@@ -53,10 +46,11 @@ export default class ErrorComponent extends Vue {
     color rgba(255, 255, 255, .2)
     overflow hidden
   .error-card
-    margin-top -25px
-    width 90vw
+    border-radius 2px
+    margin-top -50px
+    width 80vw
     max-width 600px
-    padding 50px
-    i
+    padding 25px
+    > i
       font-size 5rem
 </style>

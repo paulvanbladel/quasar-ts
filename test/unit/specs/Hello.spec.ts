@@ -1,9 +1,9 @@
 import Vue from 'vue';
-import Home from '../../../src/components/Index.vue';
+import Hello from '../../../src/components/Hello.vue';
 import {expect} from 'chai';
 describe('Hello.vue', () => {
   it('should render correct contents', () => {
-    const vm = new Home();
+    const vm = new Hello();
     vm.$mount();
     expect(vm.myVar).to.equal('hi there');
     // expect(vm.$el.querySelector('.hello h1').textContent)
