@@ -1,6 +1,6 @@
 <template>
   <div class="error-page window-height window-width bg-light column items-center no-wrap">
-    <div class="error-code bg-primary flex items-center justify-center">
+    <div class="error-code bg-primary flex items-center content-center justify-center">
       404
     </div>
     <div>
@@ -42,7 +42,12 @@
     height 50vh
     width 100%
     padding-top 15vh
-    font-size 30vmax
+    @media (orientation: landscape) { 
+      font-size 30vw
+    }
+    @media (orientation: portrait) { 
+      font-size 30vh
+    }
     color rgba(255, 255, 255, .2)
     overflow hidden
   .error-card
