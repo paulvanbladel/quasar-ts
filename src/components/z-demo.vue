@@ -13,6 +13,7 @@
 
 <script lang='ts'>
 import Vue from 'vue';
+import { Calculator } from '../app-core/calculator';
 import Component from 'vue-class-component';
 @Component({
   props: {
@@ -26,8 +27,10 @@ export default class ZDemo extends Vue {
     this.counter++;
   }
   get MyComputedProp() {
+    const c = new Calculator();
+    const result = c.Add(1, 1);
     // eslint-disable-next-line
-    return `your asked: ${(this as any).prop1}`;
+    return `your asked: ${(this as any).prop1} ${result}`;
   }
 }
 </script>
