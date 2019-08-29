@@ -1,6 +1,6 @@
 <template>
-  <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="~assets/quasar-logo-full.svg">
+  <q-page class="flex">
+    <z-demo></z-demo>
   </q-page>
 </template>
 
@@ -8,9 +8,10 @@
 </style>
 
 <script lang="ts">
-import Vue from 'vue'
-
+import Vue from 'vue';
+import ZDemo from '../components/z-demo.vue';
 export default Vue.extend({
-  name: 'PageIndex'
-})
+  name: 'PageIndex',
+  components: { ZDemo }
+});
 </script>
