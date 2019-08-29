@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex">
-    <z-demo></z-demo>
+    <z-demo prop1="hi there"></z-demo>
   </q-page>
 </template>
 
@@ -10,8 +10,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import ZDemo from '../components/z-demo.vue';
-export default Vue.extend({
-  name: 'PageIndex',
+import Component from 'vue-class-component';
+@Component({
   components: { ZDemo }
-});
+})
+export default class Index extends Vue {}
 </script>

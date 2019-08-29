@@ -42,8 +42,7 @@ describe('Mount Quasar', () => {
 
   it('sets the correct default data', () => {
     expect(typeof vm.counter).toBe('number');
-    const defaultData2 = QBUTTON.data();
-    expect(defaultData2.counter).toBe(0);
+    expect(vm.counter).toBe(0);
   });
 
   it('correctly updates data when button is pressed', () => {
