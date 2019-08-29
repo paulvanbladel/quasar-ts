@@ -2,7 +2,7 @@ module.exports = {
   globals: {
     __DEV__: true
   },
-  setupFilesAfterEnv: ['<rootDir>/test/jest/jest.setup.js'],
+  setupFilesAfterEnv: ['<rootDir>/test/jest/jest.setup.ts'],
   // noStackTrace: true,
   // bail: true,
   // cache: false,
@@ -42,7 +42,7 @@ module.exports = {
   },
   transform: {
     '.*\\.vue$': 'vue-jest',
-    '.*\\.js$': 'babel-jest',
+    '^.+\\.(ts|js|html)$': 'ts-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$':
       'jest-transform-stub'
     // use these if NPM is being flaky

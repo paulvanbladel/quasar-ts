@@ -20,6 +20,7 @@
     "@quasar/extras": "^1.0.0",
     "axios": "^0.18.1",
     "quasar": "^1.0.0",
+    "ts-jest": "^24.0.2",
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {

@@ -11,11 +11,11 @@ module.exports = wallaby => {
       'jest.config.js',
       'package.json',
       'test/**/*',
-      '!test/**/*.spec.js',
-      '!src/**/*.spec.js'
+      '!test/**/*.spec.ts',
+      '!src/**/*.spec.ts'
     ],
 
-    tests: ['src/**/*.spec.js', 'test/jest/**/*.spec.js'],
+    tests: ['src/**/*.spec.ts', 'test/jest/**/*.spec.ts'],
 
     env: {
       type: 'node',
@@ -28,12 +28,18 @@ module.exports = wallaby => {
     },
 
     preprocessors: {
-      '**/*.vue': file => require('vue-jest').process(file.content, file.path)
+      '**/*.js?(x)': file =>
+        require('@babel/core').transform(file.content, {
+          sourceMap: true,
+          compact: false,
+          filename: file.path,
+          plugins: ['babel-plugin-jest-hoist']
+        })
     },
 
     setup: function(wallaby) {
       const jestConfig = require('./package').jest || require('./jest.config');
-      jestConfig.transform = {};
+      // delete jestConfig.transform['^.+\\.tsx?$'];
       wallaby.testFramework.configure(jestConfig);
     },
 
