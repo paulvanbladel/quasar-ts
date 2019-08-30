@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import example from './module-ToDo';
+import example from './todo-module';
 
 Vue.use(Vuex);
 

@@ -33,7 +33,7 @@
       <div>
         <button
           type="submit"
-          @click="AddToDo()"
+          @click="DoAddToDo()"
           class="btn btn-primary"
         >Add ToDo</button>
       </div>
@@ -41,7 +41,7 @@
     <ul class="list-group">
       <li
         class="list-group-item"
-        v-for="todo of ToDos"
+        v-for="todo of todos"
         :key="todo.Name"
       >{{ todo.Name}}, {{ todo.IsCompleted ? "Completed" : "Not Done" }}</li>
     </ul>
