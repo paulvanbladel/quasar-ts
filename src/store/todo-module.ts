@@ -17,10 +17,10 @@ import { resolve } from 'url';
   name: 'todoModule'
 })
 class TodoModuleClass extends VuexModule {
-  public myProp: string = 'propy';
+  public myProp: number = 7;
   public todos: ToDoModel[] = Array<ToDoModel>();
   @Mutation
-  public setMyProp(value: string) {
+  public setMyProp(value: number) {
     this.myProp = value;
   }
   @Mutation
