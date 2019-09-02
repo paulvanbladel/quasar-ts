@@ -8,6 +8,7 @@ import {
 
 import ToDoModel from 'src/models/ToDoModel';
 import store from '../store';
+import { resolve } from 'url';
 
 @Module({
   store,
@@ -33,7 +34,12 @@ class TodoModuleClass extends VuexModule {
       { Name: 'Second todo', IsCompleted: false },
       { Name: 'Third today', IsCompleted: false }
     ];
-    todoSeed.forEach(t => this.addToDoToList(t));
+    return new Promise(resolve => {
+      setTimeout(() => {
+        todoSeed.forEach(t => this.addToDoToList(t));
+        resolve();
+      }, 1500);
+    });
   }
 }
 export const TodoStore = getModule(TodoModuleClass);
