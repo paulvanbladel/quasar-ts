@@ -1,8 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import { TodoState } from './todo-module';
-
-// import TodoModule from './todo-module';
 
 Vue.use(Vuex);
 
