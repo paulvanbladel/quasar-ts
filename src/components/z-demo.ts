@@ -11,7 +11,7 @@ export default class ZDemo extends Vue {
   public input = 'rocket muffin';
   public increment() {
     this.counter++;
-    this.$store.commit('example/setMyProp', this.counter);
+    this.$store.commit('todoModule/setMyProp', this.counter);
   }
   public get MyComputedProp() {
     const c = new Calculator();

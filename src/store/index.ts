@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+// import { TodoState } from './todo-module';
 
-import example from './todo-module';
+// import TodoModule from './todo-module';
 
 Vue.use(Vuex);
 
@@ -10,17 +11,12 @@ Vue.use(Vuex);
  * directly export the Store instantiation
  */
 
-export default function(/* { ssrContext } */) {
-  const Store = new Vuex.Store({
-    modules: {
-      example
-    },
+// interface StoreType {
+//   todoModule: TodoState;
+// }
+export default new Vuex.Store({});
+// export default function(/* { ssrContext } */) {
+//   const Store = new Vuex.Store<StoreType>({});
 
-    // enable strict mode (adds overhead!)
-    // for dev mode only
-    //@ts-ignore
-    strict: process.env.DEV
-  });
-
-  return Store;
-}
+//   return Store;
+// }

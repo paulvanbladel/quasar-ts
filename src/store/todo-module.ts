@@ -1,10 +1,21 @@
-import { VuexModule, Module, Mutation } from 'vuex-module-decorators';
+import {
+  VuexModule,
+  Module,
+  Mutation,
+  getModule,
+  Action
+} from 'vuex-module-decorators';
+
 import ToDoModel from 'src/models/ToDoModel';
+import store from '../store';
 
 @Module({
-  namespaced: true
+  store,
+  namespaced: true,
+  dynamic: true,
+  name: 'todoModule'
 })
-export default class TodoModule extends VuexModule {
+class TodoModuleClass extends VuexModule {
   public myProp: string = 'propy';
   public todos: ToDoModel[] = Array<ToDoModel>();
   @Mutation
@@ -12,7 +23,17 @@ export default class TodoModule extends VuexModule {
     this.myProp = value;
   }
   @Mutation
-  public addToDo(toDoModel: ToDoModel) {
+  public addToDoToList(toDoModel: ToDoModel) {
     this.todos.push(toDoModel);
   }
+  @Action
+  public LoadTodos() {
+    const todoSeed: ToDoModel[] = [
+      { Name: 'First today ever', IsCompleted: false },
+      { Name: 'Second todo', IsCompleted: false },
+      { Name: 'Third today', IsCompleted: false }
+    ];
+    todoSeed.forEach(t => this.addToDoToList(t));
+  }
 }
+export const TodoStore = getModule(TodoModuleClass);
