@@ -8,7 +8,6 @@ import {
 
 import ToDoModel from 'src/models/ToDoModel';
 import store from '../store';
-import { resolve } from 'url';
 
 @Module({
   store,

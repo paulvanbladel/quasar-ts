@@ -13,7 +13,6 @@ export default class ZDemo extends Vue {
   }
   public input = 'rocket muffin';
   public increment() {
-    // this.counter++;
     TodoStore.setMyProp(TodoStore.myProp + 1);
   }
   public get MyComputedProp() {
